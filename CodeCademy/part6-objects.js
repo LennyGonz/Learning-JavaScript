@@ -13,7 +13,7 @@ const restaurant = {
     hasDineInSpecial: true,
     entrees: ['Penne alla Bolognese','Chicken Cacciatore','Linguine pesto'],
     openRestaurant(){
-      if(hasDineInSpecial){
+      if(hasDineInSpecial){ // source of the error -- out of the method's scope
         return 'Unlock the door, post the special on the board, then flip the open sign.';
       }
       else{
@@ -26,7 +26,7 @@ const restaurant = {
   // The error above doesn't work because hasDineInSpecial is out of the
   // .openRestaurant() method's scope.
   
-  // To address this scope issue, we can use this THIS keyword to access
+  // To address this scope issue, we can use this 'THIS' keyword to access
   // properties inside of the same object
   // We can utilize THIS in the openRestaurant() function as such:
   const restaurant = {
@@ -35,7 +35,7 @@ const restaurant = {
     hasDineInSpecial: true,
     entrees: ['Penne alla Bolognese','Chicken Cacciatore','Linguine pesto'],
     openRestaurant(){
-      if(this.hasDineInSpecial){
+      if(this.hasDineInSpecial){ // THIS allows us to access properties inside of the same object
         return 'Unlock the door, post the special on the board, then flip the open sign.';
       }
       else{
@@ -47,7 +47,7 @@ const restaurant = {
   
   // **************************** Getters and Setters **************************** \\
   
-  // A common object design paradigm is to include GETTER and SETTER methods as attributes
+  // A common object design paradigm is to include GETTER and SETTER methods as ATTRIBUTES
   
   // Getter and setter methods get and set the properties inside of an object. There are a
   // couple of advantages to using these methods for getting and setting properties directly:
@@ -63,7 +63,7 @@ const restaurant = {
     hasDineInSpecial: true,
     entrees: ['Penne alla Bolognese','Chicken Cacciatore','Linguine Pesto']
   }
-  // In the example AnimationPlaybackEvent, the seatingCapacity key holds the number 120. Let's
+  // In the example above, the seatingCapacity key holds the number 120. Let's
   // imagine that the restaurant managers like that this value is a number because they can use
   // it to calculate the number of available seats at any given time during the evening
   
@@ -96,7 +96,7 @@ const restaurant = {
   
   // Let's consider the new information in this example step-by-step
   
-  // * We prepended the property names with underscores (_). Developers use animals
+  // * We prepended the property names with underscores (_). Developers use
   //   an underscore before a property name to indicate a property or value should not
   //   be modified directly by other code. We recommend prepending all properties with
   //   an underscore, and creating setters for all attributes you want to access later
@@ -147,8 +147,8 @@ const restaurant = {
   person.age = 'Thirty-nine';
   person.age = 39;
   console.log(person.age);
-  
-  // GETTERS AND SETTERS PART II
+
+  // ----------------- GETTERS AND SETTERS PART II ----------------- \\
   
   // 1. Under your object, use dot notation to try changing the value of age to
   //    the string, 'Thirty-nine'
@@ -177,10 +177,10 @@ const restaurant = {
   person.age = 39;
   console.log(person.age);
   
-  // More Getters and Setters PART III
+  // ----------------- More Getters and Setters PART III ----------------- \\
   
-  // Once you've set the properties, you need a way to access them. Getters are
-  // used to get the property values inside of an object
+  // Once you've set the properties, you need a way to access them. 
+  // Getters are used to get the property values inside of an object
   let restaurant = {
     _name: 'Italian Bistro',
     _seatingCapacity: 120,
@@ -203,8 +203,11 @@ const restaurant = {
   // In the example above, the getter method (get seatingCapacity()) logs something to
   // the console and returns the value saved to _seatingCapacity. We call the getter 
   // method the same way we would access a property without a method:
-  restaurant.seatingCapacity=150;
-  const seats = restaurant.seatingCapacity;
+  
+  console.log(restaurant._seatingCapacity); // this demonstrates the original seating capacity 
+  restaurant.seatingCapacity=150; // we increase the capacity
+  const seats = restaurant.seatingCapacity; // we GET the seating capacity and 
+  // print the line "There are 150 seats at Italian Bistro"
   
   // In this example we set the seatingCapacity to 150, then call the getter method using
   // restaurant.seatingCapacity and save the result to a variable called seats. The getter
