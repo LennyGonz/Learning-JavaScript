@@ -1,4 +1,4 @@
-const candyFacaotry = (flavor) => {
+const candyFactory = (flavor) => {
   const experts = {
     Chocolate: {
       name: 'Tim',
@@ -12,7 +12,7 @@ const candyFacaotry = (flavor) => {
 
   const expertByFlavor = experts[flavor];
   return (quantity) => {
-    return `${quantity} ${flavor} candies are made by ${expertByFlavor}.`
+    return `${quantity} ${flavor} candies are made by ${expertByFlavor.name}.`
   }
 }
 
@@ -22,5 +22,5 @@ const strawberryExpert = candyFactory('Strawberry');
 console.log(chocolateExpert(1000));
 // 1000 chocolate candies are made by Time
 
-console.log(stawberryExpert(500));
+console.log(strawberryExpert(500));
 // 500 strawberry candies are made by Alex
