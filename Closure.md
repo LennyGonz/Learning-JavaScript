@@ -97,22 +97,11 @@ Then, after grasping the basics, you'll need just one step to finally understand
    > If you try to access `count` from outside anyways,
    > Javascript throws `ReferenceError: count is not defined`
    > 
-   > In JavaScript, the scope says: if you've definde a variable inside of a function or code block,
-   > then you can use this variable only within that function or code block.
+   > In JavaScript, the scope says: 
+   > **If you've definde a variable inside of a function or code block,
+   > then you can use this variable only within that function or code block.**
    > The above example demonstrates this behavior
-   >
-   > The **`scope`** manages variables accessibility
-   >
-   > ```js
-   > function foo() {
-   >  // The Function foo
-   >  let count = 0
-   >  console.log(count)
-   > }
-   >
-   > foo();
-   > console.log(count); // referenceError: count is not defined
-   > ```
+   > ![javascript-closure1](images/javascript1.jpg)
    >
    > **The *`scope`* is a space policy that rules the accessibility of variables**
    >
@@ -143,11 +132,45 @@ Then, after grasping the basics, you'll need just one step to finally understand
    > 
    > foo();
    > bar();
-   > s
+   > 
    > `count` variables from `foo()` and `bar()` function scopes do not collide
 
 
 2. Scopes nesting
+    > We need to play a little more with scopes... we can start by putting one scope inside another
+    >
+    > The Function `innerFunc()` is nested inside an outer function `outerFunc()`
+    > ![javascript-closure-2](images/javascript2.jpg)
+    > 
+    > How would the 2 function scopes interact with each other ?
+    > Can I access the variable `outerFunc()` from within innerFunc() scope?
+    > Let's try that in the example:
+    > ```js
+    > function outerFunc() {
+    >  // the outer scope
+    >  let outerVar = 'I am Outside';
+    >
+    >  function innerFunc() {
+    >    // the inner scope
+    >    console.log(outVar); // logs "I am outside"
+    >  }
+    >
+    >  innerFunc();
+    > }
+    > 
+    > outerFunc();
+    > ```
+    > Indeed, `outerVar` variable is accessible inside `innerFunc()` scope.
+    > The variables of the outer scope are accessible inside the inner scope.
+    > 
+    > Now you know 2 interesting things:
+    > 
+    > - **Scopes can be nested**
+    > - **The variables of the outer scope are accessible inside the inner scope**
+
+
+
+
 3. The Lexical Scope
 4. The Closure
 5. Closure examples
