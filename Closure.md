@@ -168,10 +168,59 @@ Then, after grasping the basics, you'll need just one step to finally understand
     > - **Scopes can be nested**
     > - **The variables of the outer scope are accessible inside the inner scope**
 
-
-
-
 3. The Lexical Scope
+
+    > How does JavaScript understand that `outerVar`inside`innerFunc()`corresponds to the variable`outerVar`of`outerFunc()`?
+    > 
+    > It's because JavaScript implements a scoping mechanism called ***`lexical scoping`***(also called **static scoping**)
+    > 
+    > ***Lexical Scoping:*** means that the accessibility of variables is determined by the position of the variables in the source code inside the nesting scopes
+    > 
+    > Simpler, ***Lexical Scoping*** means that inside the inner scope you can access variables of its outer scope
+    >
+    > It's called *`lexical`*(or *`static`*) because the engine determines the nesting of scopes just by looking at the JavaScript code, without executing it.
+    > 
+    > Here's how the engine understands the previous code snippet
+    > 
+    > 1) I can see you define a function `outerFunc()` that has a variable `outerVal` - good
+    > 2) Inside the `outerFunc()`, I can see you define a function `innerFunc()`
+    > 3) Inside the `innerFunc()`, I can see a variable `outerVar` *without declaration.* Since I use lexical scoping, I consider the variable `outerVar` inside `innerFunc()` to be the same variable as `outerVar` of `outerFunc()`
+ 
+    > Another example:
+    > ```js
+    > 
+    > const myGlobal = 0;
+    > 
+    > function func() {
+    >   const myVar = 1;
+    >   console.log(myGlobal); // logs 0
+    > 
+    >   function innerOfFunc() {
+    >     const myInnerVar = 2;
+    >     console.log(myGlobal, myVar); // logs 0 1
+    > 
+    >     function innerOfInnerOfFunc() {
+    >       console.log(myGlobal, myVar, myInnerVar); // logs 0 1 2
+    >     }
+    > 
+    >     innerOfInnerOfFunc();
+    >   }
+    > 
+    >   innerOfFunc();
+    > }
+    > 
+    > func();
+    > ```
+    > 
+    > 
+    > The lexical scop of `innerOfInnnerOfFunc()` consists of `innerOfFunc()`, `func()` and global scope > (the outermos scope). Within `innerOfInnerOfFunc()` you can access the lexical scope variable > `myInnerVar`, `myVar` and `myGlobal`
+    > 
+    > The lexical scope of `innerFunc()` consists of `func()` and global scope.
+    > Within `innerOfFunc()` you can access the lexical scope variables `myVar` and `myGlobal`
+    > 
+    > Finally, the lexical scope of `func()` consists of only the global scope.
+    > Within `func()` you can access the lexical scope variable `myGlobal`
+
 4. The Closure
 5. Closure examples
 5.1 Event Handler
