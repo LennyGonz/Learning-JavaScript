@@ -66,8 +66,6 @@ The **`callbacks`**, **`event handlers`**, **`higher-order functions`** can acce
 You need to understand the fundamental terms: **`scope`** and **`lexical scope`**
 Then, after grasping the basics, you'll need just one step to finally understand closures
 
-<div>
-
 1. The Scope
    
     When you define a variable, you want it accessible within some boundaries
@@ -228,5 +226,3 @@ Then, after grasping the basics, you'll need just one step to finally understand
 5.2 Callbacks
 5.3 Functional programming
 6. Conclusion
-
-</div>
