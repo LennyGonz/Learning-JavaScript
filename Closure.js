@@ -24,3 +24,4 @@ console.log(chocolateExpert(1000));
 
 console.log(strawberryExpert(500));
 // 500 strawberry candies are made by Alex
+
