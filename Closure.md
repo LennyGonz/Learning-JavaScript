@@ -267,6 +267,21 @@ Then, after grasping the basics, you'll need just one step to finally understand
     myInnerFunc()
     ```
 
+    Now `innerFunc()` is executed  outside of its lexical scope. And what's important:
+
+    `innerFunc()` *still has access to `outerVar` from its lexical scope, even being executed outside of its lexical scope*
+
+    In other words, `innerFunc()` *closes over* (a.k.a captures, remembers) the variable `outerVar` from its *lexical scope*.
+
+    In other words, `innerFunc()` is a *closure* because it closes over the variable `outerVar` from its lexical scope
+
+    ![jsclosure](images/javascript3.jpg)
+
+    You've made the final step to understanding what a closure is:
+
+    > *The closure* is a function that accesses its lexical scope even executed outside its lexical scope
+
+
 5. Closure examples
 5.1 Event Handler
 5.2 Callbacks
