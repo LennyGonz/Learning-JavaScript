@@ -281,6 +281,13 @@ Then, after grasping the basics, you'll need just one step to finally understand
 
     > *The closure* is a function that accesses its lexical scope even executed outside its lexical scope
 
+    Simpler, the closure is a function that remembers the variables from the place where it is defined, regardless of where it is executed later.
+
+    A rule of thumb to identify a closure: if you see in a function an alien variable (not defined inside the function), most likely that function because the alien variable is captured.
+
+    In the previous code snippet, `outerVar` is an alien variable inside the closure `innerFunc()` captured from `outerFunc()` scope.
+
+    Let's continue with examples that demonstrate why the closure is useful.
 
 5. Closure examples
 5.1 Event Handler
