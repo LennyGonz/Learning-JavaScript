@@ -291,6 +291,22 @@ Then, after grasping the basics, you'll need just one step to finally understand
 
 5. Closure examples
 5.1 Event Handler
+
+    Let's display how many times a button is clicked:
+
+    ```js
+    let countClicked = 0;
+
+    myButton.addEventListener('click', function handleClick() {
+    countClicked++;
+    myText.innerText = `You clicked $(countClicked) times`;
+    });
+    ```
+
+    [google](google.com) and click the button. The text updates to show the number of clicks
+
+    When the button is clicked, `handleClick()` captures `countClicked` from the lexical scope and updates it when a click happens. Even more, `myText` is captured too.
+
 5.2 Callbacks
 5.3 Functional programming
 6. Conclusion
