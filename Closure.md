@@ -221,6 +221,52 @@ Then, after grasping the basics, you'll need just one step to finally understand
      Within `func()` you can access the lexical scope variable `myGlobal`
 
 4. The Closure
+
+    Ok, the lexical scope allows to access the variables statically of the outer scopes.
+    There's just one step until the closure!
+
+    Let's take a look again at the `outerFunc()` and `innerFunc()` example:
+
+    ```js
+    function outerFunc() [
+      let outerVar = 'I am outside!';
+
+      function innerFunc() {
+        console.log(outerVar); // logs "I am outside!"
+      }
+
+      innerFunc();
+    ]
+
+    outerFunc();
+    ```
+
+    Inside the `innerFunc()` scope, the variable `outerVar` is accessed from the lexical scope.
+    That's known already.
+
+    Note that `innerFunc()` invocation happens inside its lexical scope (the scope of `outerFunc()`)
+
+    Let's make a change: `innerFunc()` to be invoked outside of its lexical scope (outside of `outerFunc()`).
+
+    Would `innerFunc()` still be able to access `outerVar`?
+
+    Let's make the adjustments to the code snippet:
+
+    ```js
+    function outerFunc() {
+      let outerVar = 'I am outside!';
+
+      function innerFunc() {
+        console.log(outerVar) // => "I am outside!"
+      }
+
+      return innerFunc;
+    }
+
+    const myInnerFunc = outerFunc();
+    myInnerFunc()
+    ```
+
 5. Closure examples
 5.1 Event Handler
 5.2 Callbacks
