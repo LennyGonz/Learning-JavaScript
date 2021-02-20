@@ -305,7 +305,7 @@ Then, after grasping the basics, you'll need just one step to finally understand
 
     [google](google.com) and click the button. The text updates to show the number of clicks
 
-    When the button is clicked, `handleClick()` captures `countClicked` from the lexical scope and updates it when a click happens. Even more, `myText` is captured too.
+    When the button is clicked, `handleClick()` captures `countClicked` from the lexical scope and updates it when a click happens. Even more, `myText` is captured too...
 
 5.2 Callbacks
 5.3 Functional programming
