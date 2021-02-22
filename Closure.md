@@ -308,5 +308,7 @@ Then, after grasping the basics, you'll need just one step to finally understand
     When the button is clicked, `handleClick()` captures `countClicked` from the lexical scope and updates it when a click happens. Even more, `myText` is captured too...
 
 5.2 Callbacks
+    
+
 5.3 Functional programming
 6. Conclusion
