@@ -339,5 +339,35 @@ Then, after grasping the basics, you'll need just one step to finally understand
 
     The `iterator` is a closure because it captures `countEven` variable.
 5.3 Functional programming
+    Currying happens when a function returns another function until the arguments are fully supplied.
+
+    For example:
+
+    ```js
+    function multiply(a){
+      return function executeMultiply(b) {
+        return a*b;
+      }
+    }
+
+    const double = multiply(2);
+    double(3); // => 6
+    double(5); // => 10
+
+    const triple = multiply(3);
+    triple(4); // => 12
+    ```
+
+    `multiply` is a curried function that returns another function
+    Currying, an important concept of functional programming, is also possible thanks to closures
+
+    `executeMultiply(b)` is a closure that captures `a` from its lexical scope.
+    When the closure is invoked, the captured variable `a` and the parameter `b` are used to calculate `a*b`.
     
 6. Conclusion
+The scope is what rules the accessibility of variables in JavaScript.
+There can be a function or a block scope
+The lexical scope allows a function scope to access statically the variables from the outer scopes
+Finally, a closure is a function the captures variables from its lexical scope.
+**In simple words, the closure remembers the variables from the place where it is defined, no matter where it is executed.**
+Closures capture variables inside event handlers, callbacks. They're used in functional programming. Moreover, you could be asked how closures work during a Frontend Job Interview.
