@@ -306,9 +306,38 @@ Then, after grasping the basics, you'll need just one step to finally understand
     [google](google.com) and click the button. The text updates to show the number of clicks
 
     When the button is clicked, `handleClick()` captures `countClicked` from the lexical scope and updates it when a click happens. Even more, `myText` is captured too...
-
 5.2 Callbacks
-    
+    Capturing variables from the lexical scope is useful in callbacks
 
+    A `setTimeout()` callback:
+
+    ```js
+    const message = 'Hello, World!';
+
+    setTimeout(function callback() {
+      console.log(message); // logs - "Hello, World!"
+    }, 1000);
+    ```
+    
+    The `callback()` is a closure because it captures the variable `message`.
+
+    An iterator function for `forEach()`:
+
+    ```js
+    let countEven = 0;
+
+    const items = [1, 5, 100, 10];
+
+    items.forEach(function iterator(number){
+      if (number % 2 === 0) {
+        countEven++;
+      }
+    });
+
+    countEven; // => 2
+    ```
+
+    The `iterator` is a closure because it captures `countEven` variable.
 5.3 Functional programming
+    
 6. Conclusion
