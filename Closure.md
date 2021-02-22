@@ -303,7 +303,7 @@ Then, after grasping the basics, you'll need just one step to finally understand
     });
     ```
 
-    [google](google.com) and click the button. The text updates to show the number of clicks
+    [Demo](https://codesandbox.io/s/event-handling-ymvr9) and click the button. The text updates to show the number of clicks
 
     When the button is clicked, `handleClick()` captures `countClicked` from the lexical scope and updates it when a click happens. Even more, `myText` is captured too...
 5.2 Callbacks
@@ -371,3 +371,4 @@ The lexical scope allows a function scope to access statically the variables fro
 Finally, a closure is a function the captures variables from its lexical scope.
 **In simple words, the closure remembers the variables from the place where it is defined, no matter where it is executed.**
 Closures capture variables inside event handlers, callbacks. They're used in functional programming. Moreover, you could be asked how closures work during a Frontend Job Interview.
+[7 Interview Questions on Javascript Closures](https://dmitripavlutin.com/javascript-closures-interview-questions/)
