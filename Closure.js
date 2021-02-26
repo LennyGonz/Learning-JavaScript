@@ -31,7 +31,8 @@ console.log(strawberryExpert(500));
 
 
 // 1. Consider the following functions clickHandler(), immediate(), and delayedReload()
-let countClicks = 0;
+
+/* let countClicks = 0;
 button.addEventListener('click', function clickHandler() {
   countClicks++;
 });
@@ -43,10 +44,11 @@ const result = (function immediate(number) {
 
 setTimeout(function delayedReload() {
   location.reload();
-}, 1000);
+}, 1000);let countClicks = 0;
+*/
 
 // Which of these 3 functions access outer scope variables?
-/**
+/*
  * clickHandler() if you create an exection context
  * local memory for this function has no declaration of a variable called countClicks
  * so we look for this variable in the Global memory, which is where countClicks is initialized
@@ -57,4 +59,18 @@ setTimeout(function delayedReload() {
  * 
  * delayedReload() access global variable location - location is not a user defined variable, but it's a browser object.
  * So it will always be accessible in the global scope
- */
+*/
+
+// 2. What will log to console the following code snippet?
+
+(function immediateA(a) {
+  return (function immediateB(b) {
+    console.log(a); // What is logged?
+  })(1);
+})(0);
+
+// 0 will be logged
+// immediateA() is called with the argument 0, thus `a` parameter is 0
+// immediateB() function, being nested into immediateA function, is a closure that
+// captures `a` variable from the outer `immediateA` scope, where `a` is `0`
+// This console.log(a) logs 0
