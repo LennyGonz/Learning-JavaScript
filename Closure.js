@@ -74,3 +74,19 @@ setTimeout(function delayedReload() {
 // immediateB() function, being nested into immediateA function, is a closure that
 // captures `a` variable from the outer `immediateA` scope, where `a` is `0`
 // This console.log(a) logs 0
+
+
+// 3. What will log to console the following code snippet:
+
+let count = 0;
+(function immediate() {
+  if (count === 0) {
+    let count = 1;
+    console.log(count); // this will log 1
+  }
+  console.log(count) // this will log 0
+})
+
+// immediate's execution context doesnt have a local variable called count
+// so we look in the global scope and thats how we enter the if-statement
+// however once we exit we the count we have access to so back the global count which is 0
