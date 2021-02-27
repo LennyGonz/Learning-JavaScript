@@ -89,4 +89,4 @@ let count = 0;
 
 // immediate's execution context doesnt have a local variable called count
 // so we look in the global scope and thats how we enter the if-statement
-// however once we exit we the count we have access to so back the global count which is 0
+// however once we exit we the count we have access to so back the global count which is 
